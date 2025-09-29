@@ -26,33 +26,28 @@ export class Choice implements OnInit, AfterViewChecked {
   }
 
   handleWinner() {
+    const rules: Record<string, string> = {
+      rock: 'scissors',
+      paper: 'rock',
+      scissors: 'paper',
+    };
+
+    if (!this.userChoice) {
+      this.router.navigate(['/playground']);
+    }
+
     if (this.userChoice === this.houseChoice) {
       this.results = 'Drew';
-    } else if (this.userChoice === 'paper' && this.houseChoice === 'rock') {
+    } else if (rules[this.userChoice!] === this.houseChoice) {
       this.results = 'Win';
       this.scoreService.setScore(1);
-    } else if (this.userChoice === 'paper' && this.houseChoice === 'scissors') {
+    } else {
       this.results = 'Lose';
       this.scoreHouseService.setScore(1);
-    } else if (this.userChoice === 'rock' && this.houseChoice === 'scissors') {
-      this.results = 'Win';
-      this.scoreService.setScore(1);
-    } else if (this.userChoice === 'rock' && this.houseChoice === 'paper') {
-      this.results = 'Lose';
-      this.scoreHouseService.setScore(1);
-    } else if (this.userChoice === 'scissors' && this.houseChoice === 'paper') {
-      this.results = 'Win';
-      this.scoreService.setScore(1);
-    } else if (this.userChoice === 'scissors' && this.houseChoice === 'rock') {
-      this.results = 'Lose';
-      this.scoreHouseService.setScore(1);
-    } else { 
-      this.router.navigate(['/playground'])
-    }  
+    }
   }
-
   ngAfterViewChecked(): void {
-     if (this.scoreHouseService.scoreHouse() === 10) {
+    if (this.scoreHouseService.scoreHouse() === 10) {
       this.scoreHouseService.clearScore();
       this.scoreService.clearScore();
       alert('Game Over! 😒');
@@ -69,7 +64,6 @@ export class Choice implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-  
     setTimeout(() => {
       this.houseChoice = this.possibleChoices[this.selector];
       this.handleWinner();
