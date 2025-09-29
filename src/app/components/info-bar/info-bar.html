@@ -1,0 +1,12 @@
+<div class="border-gray-600 border-2 h-[120px] w-[400px] lg:w-[600px] md:w-[550px] xl:w-[700px] rounded-xl flex p-4 justify-between items-center">
+  <div class="logo md:w-32 md:h-28 h-20 w-24"></div>
+  <p class="medium text-gray-400 w-30 md:w-fit">Score 10 points to win the game</p>
+  <div class="bg-white w-28 rounded-xl flex justify-center items-center flex-col h-full">
+    <h1 class="text-blue-700 text-sm">SCORE</h1>
+    <div class="flex items-center justify-center w-full">
+      <p class="text-4xl semi-bold -m-1">{{scoreService.score()}}</p>
+      <span class="px-3 text-4xl semi-bold">-</span>
+      <p class="text-4xl semi-bold -m-1">{{scoresHouseServices.scoreHouse()}}</p>
+    </div>
+  </div>
+</div>

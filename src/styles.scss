@@ -1,1 +1,129 @@
-/* You can add global styles to this file, and also import other style files */
+@use "tailwindcss";
+
+@font-face {
+  font-family: "BarlowBold";
+  src: url("../public/fonts/BarlowSemiCondensed-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BarlowMedium";
+  src: url("../public/fonts/BarlowSemiCondensed-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BarlowBlack";
+  src: url("../public/fonts/BarlowSemiCondensed-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BarlowSemiBold";
+  src: url("../public/fonts/BarlowSemiCondensed-SemiBold.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "BarlowExtraBold";
+  src: url("../public/fonts/BarlowSemiCondensed-ExtraBold.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-image: radial-gradient(
+    circle at center,
+    hsl(214, 47%, 23%),
+    hsl(237, 48%, 15%)
+  );
+}
+
+.rules {
+   background-image: url("../public/images/image-rules.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.close {
+   background-image: url("../public/images/icon-close.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.logo {
+  background-image: url("../public/images/logo.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.paper {
+  background-image: url("../public/images/icon-paper.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.rock {
+  background-image: url("../public/images/icon-rock.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.scissors {
+  background-image: url("../public/images/icon-scissors.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.triangle {
+  background-image: url("../public/images/bg-triangle.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.semi-bold {
+  font-family: "BarlowSemiBold";
+}
+.bold {
+  font-family: "BarlowBold";
+}
+.extra-bold {
+  font-family: "BarlowExtraBold";
+}
+.black {
+  font-family: "BarlowBlack";
+}
+.medium {
+  font-family: "BarlowMedium";
+}
+
+.shadow-bx-p {
+    box-shadow: inset -8px -10px 3px -7px hsl(229, 64%, 46%);
+}
+.shadow-bx-s {
+    box-shadow: inset 8px -10px 3px -7px hsl(28, 76%, 44%);
+}
+.shadow-bx-r {
+    box-shadow: inset -8px -10px 3px -7px hsl(347, 75%, 35%);
+}
+.shadow-bx-p:active {
+    box-shadow: none;
+}
+.shadow-bx-s:active {
+    box-shadow: none;
+}
+.shadow-bx-r:active {
+    box-shadow: none;
+}

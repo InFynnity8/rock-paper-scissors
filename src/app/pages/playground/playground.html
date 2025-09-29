@@ -1,0 +1,22 @@
+<div class="flex w-full h-[60vh] flex items-center justify-center ">
+  <div class="triangle w-full h-[200px] relative">
+  <!-- Paper -->
+  <div (click)="handleChoice('paper')" class="cursor-pointer shadow-bx-p xl:left-40 md:left-25  -top-20 left-3  lg:left-30 absolute p-[18px] rounded-[50%] h-[150px] w-[150px] bg-blue-500">
+    <div class="bg-white h-full p-6 w-full rounded-[50%]">
+      <div class="paper w-full h-full"></div>
+    </div>
+  </div>
+  <!-- Scissors -->
+  <div (click)="handleChoice('scissors')" class="cursor-pointer shadow-bx-s lg:right-30 xl:right-40 md:right-25  right-3 -top-20 absolute p-[18px] rounded-[50%] h-[150px] w-[150px] bg-yellow-500">
+    <div class="bg-white h-full p-6 w-full rounded-[50%]">
+      <div class="scissors w-full h-full"></div>
+    </div>
+  </div>
+  <!-- Rock -->
+  <div (click)="handleChoice('rock')" class="cursor-pointer shadow-bx-r -bottom-20 xl:left-68 lg:left-55 md:left-50 left-32 absolute p-[18px] rounded-[50%] h-[150px] w-[150px] bg-red-600">
+    <div class="bg-white h-full p-7 w-full rounded-[50%] transition">
+      <div class="rock w-full h-full"></div>
+    </div>
+  </div>
+</div>
+</div>
