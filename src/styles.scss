@@ -127,3 +127,42 @@ body {
 .shadow-bx-r:active {
     box-shadow: none;
 }
+
+
+
+.confetti {
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/images/cofetti2.gif');
+  background-size: cover;
+  animation: fadeIn 1s ease forwards;
+}
+
+
+.gameover {
+  font-size: 4rem;
+  font-weight: bold;
+  color: red;
+  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 1px;
+  animation: shake 0.8s infinite alternate;
+}
+
+.winner {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  -webkit-text-stroke-color: rgb(37, 22, 255);
+  -webkit-text-stroke-width: 2px;
+  animation: shake 0.8s infinite alternate;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shake {
+  0% { transform: translateX(-5px) rotate(-3deg); }
+  100% { transform: translateX(5px) rotate(3deg); }
+}

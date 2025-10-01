@@ -1,4 +1,10 @@
-import { AfterViewChecked, Component, inject, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  Component,
+  inject,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { ChoiceService } from '../../services/choice/choice';
 import { Scores } from '../../services/score/scores';
 import { Router } from '@angular/router';
@@ -20,9 +26,15 @@ export class Choice implements OnInit, AfterViewChecked {
   possibleChoices = ['rock', 'paper', 'scissors'];
   houseChoice = '';
   results = '';
+  gameOver = signal<boolean>(false);
 
   playAgain() {
     this.router.navigate(['/playground']);
+  }
+  startGame() {
+    this.router.navigate(['/playground']);
+    this.scoreHouseService.clearScore();
+    this.scoreService.clearScore();
   }
 
   handleWinner() {
@@ -48,17 +60,11 @@ export class Choice implements OnInit, AfterViewChecked {
   }
   ngAfterViewChecked(): void {
     if (this.scoreHouseService.scoreHouse() === 10) {
-      this.scoreHouseService.clearScore();
-      this.scoreService.clearScore();
-      alert('Game Over! 😒');
-      this.playAgain();
+      this.gameOver.set(true);
       return;
     }
     if (this.scoreService.score() === 10) {
-      this.scoreHouseService.clearScore();
-      this.scoreService.clearScore();
-      alert('You Won an iPhone 20! 🎉🎊🎊🎉🥳');
-      this.playAgain();
+      this.gameOver.set(true);
       return;
     }
   }

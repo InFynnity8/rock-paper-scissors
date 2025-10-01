@@ -1,4 +1,6 @@
-<div class="h-[60vh] w-full py-10 grid grid-cols-2  md:grid-cols-3  justify-between  items-center">
+<div
+  class="h-[60vh] w-full py-10 grid grid-cols-2 md:grid-cols-3 justify-between items-center"
+>
   <div class="order-1 md:order-1 flex flex-col items-center justify-center">
     <p class="medium text-white pb-7">YOU PICKED</p>
     @if(userChoice === 'paper'){
@@ -38,8 +40,11 @@
     ></div>
     }
   </div>
-  @if (results !== ''){
-  <div class="order-3 col-span-2 md:col-span-1 md:order-2 flex flex-col justify-center items-center">
+
+  @if (results !== '' && !gameOver()){
+  <div
+    class="order-3 col-span-2 md:col-span-1 md:order-2 flex flex-col justify-center items-center"
+  >
     <p class="text-white semi-bold text-5xl pb-2">You {{ results }}</p>
     <button
       (click)="playAgain()"
@@ -49,9 +54,40 @@
     </button>
   </div>
 
-  }@else{
-<div class="order-3"></div>
+  }@else if (gameOver()) { @if(results === 'Win') {
+  <div
+    class="absolute inset-0 flex justify-center items-center z-50 pointer-events-none overflow-hidden"
+  >
+    <div class="confetti">
+      <div
+        class="winner  pointer-events-none text-center h-screen flex items-center justify-center"
+      >
+        <p>YOU WIN! HURRAYYYY🎉</p>
+      </div>
+    </div>
+  </div>
+  } @if(results === 'Lose') {
+  <div
+    class="absolute inset-0 flex justify-center items-center z-50 pointer-events-none"
+  >
+    <div class="gameover">GAME OVER</div>
+  </div>
   }
+
+  <div
+    class="order-3 col-span-2 md:col-span-1 md:order-2 flex flex-col justify-center items-center"
+  >
+    <button
+      (click)="startGame()"
+      class="text-blue-900 rounded-lg px-8 py-2 cursor-pointer bg-white transition hover:text-orange-600"
+    >
+      PLAY AGAIN
+    </button>
+  </div>
+  }@else{
+  <div class="order-3"></div>
+  }
+
   <!-- The House -->
   <div class="order-2 md:order-3 flex flex-col items-center justify-center">
     <p class="medium text-white pb-7">THE HOUSE PICKED</p>
