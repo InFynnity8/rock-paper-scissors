@@ -60,8 +60,7 @@ export class Choice implements OnInit, AfterViewChecked {
   }
   ngAfterViewChecked(): void {
     if (this.scoreHouseService.scoreHouse() === 10) {
-      this.gameOver.set(true);
-      return;
+      this.gameOver.set(true); 
     }
     if (this.scoreService.score() === 10) {
       this.gameOver.set(true);

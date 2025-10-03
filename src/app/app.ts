@@ -10,5 +10,5 @@ import { Rules } from "./components/rules/rules";
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('rock-paper-scissors');
+   title = signal('rock-paper-scissors');
 }

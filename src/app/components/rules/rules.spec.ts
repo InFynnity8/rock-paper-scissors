@@ -8,9 +8,8 @@ describe('Rules', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Rules]
-    })
-    .compileComponents();
+      imports: [Rules],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Rules);
     component = fixture.componentInstance;
@@ -19,5 +18,17 @@ describe('Rules', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Initial value for toggleRuleValue should be false', () => {
+    expect(component.toggleRuleValue).toBe(false);
+  });
+
+  it('should call toggleRule and update the value', () => {
+    const spy = jest.spyOn(component, 'toggleRule');
+
+    component.toggleRule();
+    expect(spy).toHaveBeenCalled();
+    expect(component.toggleRuleValue).toBe(true);
   });
 });
